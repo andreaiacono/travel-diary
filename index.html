@@ -30,8 +30,8 @@
     </header>
 
     <form id="entry-form" class="entry-form">
-      <label for="entry-date">Date</label>
-      <input type="date" id="entry-date" required>
+      <label for="entry-date">Date (DD/MM/YYYY)</label>
+      <input type="text" id="entry-date" inputmode="numeric" placeholder="DD/MM/YYYY" maxlength="10" pattern="\d{2}/\d{2}/\d{4}" required>
 
       <label for="entry-subject">Subject</label>
       <input type="text" id="entry-subject" placeholder="Subject" required>
