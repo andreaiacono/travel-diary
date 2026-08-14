@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Diary</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+
+  <section id="list-view" class="view">
+    <header class="topbar">
+      <h1>Travel Diary</h1>
+      <div class="topbar-actions">
+        <button id="export-btn" class="btn btn-secondary">Export</button>
+        <button id="new-entry-btn" class="btn btn-primary">+ New Entry</button>
+      </div>
+    </header>
+
+    <p id="empty-state" class="empty-state" hidden>No entries yet. Click "New Entry" to write your first one.</p>
+
+    <ul id="entries-list" class="entries-list"></ul>
+  </section>
+
+  <section id="entry-view" class="view" hidden>
+    <header class="topbar">
+      <h1 id="entry-view-title">New Entry</h1>
+    </header>
+
+    <form id="entry-form" class="entry-form">
+      <label for="entry-date">Date</label>
+      <input type="date" id="entry-date" required>
+
+      <label for="entry-subject">Subject</label>
+      <input type="text" id="entry-subject" placeholder="Subject" required>
+
+      <label for="entry-content">Content</label>
+      <textarea id="entry-content" rows="12" placeholder="Write your entry..." required></textarea>
+
+      <div class="form-actions">
+        <button type="button" id="cancel-btn" class="btn btn-secondary">Cancel</button>
+        <button type="submit" id="save-btn" class="btn btn-primary">Save</button>
+      </div>
+    </form>
+  </section>
+
+</div>
+
+<div id="toast" class="toast" hidden></div>
+
+<script src="app.js"></script>
+</body>
+</html>
