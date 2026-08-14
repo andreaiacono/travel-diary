@@ -14,6 +14,7 @@
   const contentInput = document.getElementById("entry-content");
   const newEntryBtn = document.getElementById("new-entry-btn");
   const exportBtn = document.getElementById("export-btn");
+  const deleteAllBtn = document.getElementById("delete-all-btn");
   const cancelBtn = document.getElementById("cancel-btn");
   const toast = document.getElementById("toast");
 
@@ -207,10 +208,27 @@
     }
   }
 
+  function handleDeleteAll() {
+    const entries = loadEntries();
+    if (entries.length === 0) {
+      showToast("No entries to delete");
+      return;
+    }
+    const confirmed = window.confirm(
+      `Delete all ${entries.length} entr${entries.length === 1 ? "y" : "ies"}? This cannot be undone.`
+    );
+    if (!confirmed) return;
+
+    saveEntries([]);
+    showToast("All entries deleted");
+    renderList();
+  }
+
   newEntryBtn.addEventListener("click", () => showEntryView(null));
   cancelBtn.addEventListener("click", showListView);
   entryForm.addEventListener("submit", handleSave);
   exportBtn.addEventListener("click", handleExport);
+  deleteAllBtn.addEventListener("click", handleDeleteAll);
 
   renderList();
 })();
